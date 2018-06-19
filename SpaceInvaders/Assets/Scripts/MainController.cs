@@ -10,9 +10,17 @@ public class MainController : MonoBehaviour
 {
     public Camera FirstPersonCamera;
     public GameObject WindowPrefab;
+    public GameObject MenuUI;
+    public GameObject SearchingForPlaneUI;
+    public GameObject TapToPlayUI;
+
+    private List<DetectedPlane> m_AllPlanes = new List<DetectedPlane>();
 
     public void Update()
     {
+        // Hide snackbar when currently tracking at least one plane.
+        ShowSearchingUI();
+
         // If the player has not touched the screen, we are done with this update.
         Touch touch;
         if (Input.touchCount < 1 || (touch = Input.GetTouch(0)).phase != TouchPhase.Began)
@@ -37,7 +45,9 @@ public class MainController : MonoBehaviour
             }
             else
             {
-                // Instantiate Andy model at the hit pose.
+                MenuUI.SetActive(false);
+
+                // Instantiate window at the hit pose.
                 var andyObject = Instantiate(WindowPrefab, hit.Pose.position, hit.Pose.rotation);
 
                 // Compensate for the hitPose rotation facing away from the raycast (i.e. camera).
@@ -47,9 +57,26 @@ public class MainController : MonoBehaviour
                 // world evolves.
                 var anchor = hit.Trackable.CreateAnchor(hit.Pose);
 
-                // Make Andy model a child of the anchor.
+                // Make window a child of the anchor.
                 andyObject.transform.parent = anchor.transform;
             }
         }
+    }
+
+    private void ShowSearchingUI()
+    {
+        Session.GetTrackables<DetectedPlane>(m_AllPlanes);
+        bool showSearchingUI = true;
+        for (int i = 0; i < m_AllPlanes.Count; i++)
+        {
+            if (m_AllPlanes[i].TrackingState == TrackingState.Tracking)
+            {
+                showSearchingUI = false;
+                break;
+            }
+        }
+
+        SearchingForPlaneUI.SetActive(showSearchingUI);
+        TapToPlayUI.SetActive(!showSearchingUI);
     }
 }
