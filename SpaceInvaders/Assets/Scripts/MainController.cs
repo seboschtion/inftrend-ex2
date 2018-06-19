@@ -13,22 +13,23 @@ public class MainController : MonoBehaviour
     public GameObject MenuUI;
     public GameObject SearchingForPlaneUI;
     public GameObject TapToPlayUI;
+    public GameObject Mesh;
 
     private List<DetectedPlane> m_AllPlanes = new List<DetectedPlane>();
+    private bool _playing;
 
     public void Update()
     {
-        // Hide snackbar when currently tracking at least one plane.
         ShowSearchingUI();
 
-        // If the player has not touched the screen, we are done with this update.
+        // if player has not touched screen, exit
         Touch touch;
         if (Input.touchCount < 1 || (touch = Input.GetTouch(0)).phase != TouchPhase.Began)
         {
             return;
         }
 
-        // Raycast against the location the player touched to search for planes.
+        // raycast against location the player touched to search for planes
         TrackableHit hit;
         TrackableHitFlags raycastFilter = TrackableHitFlags.PlaneWithinPolygon |
             TrackableHitFlags.FeaturePointWithSurfaceNormal;
@@ -37,30 +38,32 @@ public class MainController : MonoBehaviour
         {
             // Use hit pose and camera pose to check if hittest is from the
             // back of the plane, if it is, no need to create the anchor.
-            if ((hit.Trackable is DetectedPlane) &&
-                Vector3.Dot(FirstPersonCamera.transform.position - hit.Pose.position,
-                    hit.Pose.rotation * Vector3.up) < 0)
+            if (!((hit.Trackable is DetectedPlane) &&
+                Vector3.Dot(FirstPersonCamera.transform.position - hit.Pose.position, hit.Pose.rotation * Vector3.up) < 0))
             {
-                Debug.Log("Hit at back of the current DetectedPlane");
-            }
-            else
-            {
-                MenuUI.SetActive(false);
-
-                // Instantiate window at the hit pose.
-                var andyObject = Instantiate(WindowPrefab, hit.Pose.position, hit.Pose.rotation);
-
-                // Compensate for the hitPose rotation facing away from the raycast (i.e. camera).
-                andyObject.transform.Rotate(0, 180.0f, 0, Space.Self);
-
-                // Create an anchor to allow ARCore to track the hitpoint as understanding of the physical
-                // world evolves.
-                var anchor = hit.Trackable.CreateAnchor(hit.Pose);
-
-                // Make window a child of the anchor.
-                andyObject.transform.parent = anchor.transform;
+                StartGame(hit);
             }
         }
+    }
+
+    private void StartGame(TrackableHit hit)
+    {
+        if(_playing)
+        {
+            return;
+        }
+
+        _playing = true;
+        MenuUI.SetActive(false);
+        Mesh.SetActive(false);
+        
+        var window = Instantiate(WindowPrefab, hit.Pose.position, hit.Pose.rotation);
+
+        // Compensate for the hitPose rotation facing away from the raycast (i.e. camera).
+        //window.transform.Rotate(0, 180.0f, 0, Space.Self);
+        
+        var anchor = hit.Trackable.CreateAnchor(hit.Pose);
+        window.transform.parent = anchor.transform;
     }
 
     private void ShowSearchingUI()

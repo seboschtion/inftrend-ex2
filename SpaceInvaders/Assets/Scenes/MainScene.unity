@@ -233,6 +233,7 @@ MonoBehaviour:
   MenuUI: {fileID: 606276690}
   SearchingForPlaneUI: {fileID: 32362637}
   TapToPlayUI: {fileID: 1483144080}
+  Mesh: {fileID: 434002794}
 --- !u!1 &376123935
 GameObject:
   m_ObjectHideFlags: 0
