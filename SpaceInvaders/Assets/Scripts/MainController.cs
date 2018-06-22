@@ -9,7 +9,7 @@ using Input = GoogleARCore.InstantPreviewInput;
 public class MainController : MonoBehaviour
 {
     public Camera FirstPersonCamera;
-    public GameObject WindowPrefab;
+    public GameObject Window;
     public GameObject MenuUI;
     public GameObject SearchingForPlaneUI;
     public GameObject TapToPlayUI;
@@ -17,6 +17,10 @@ public class MainController : MonoBehaviour
 
     private List<DetectedPlane> m_AllPlanes = new List<DetectedPlane>();
     private bool _playing;
+
+    void Start () {
+		Window.SetActive(false);
+	}
 
     public void Update()
     {
@@ -56,14 +60,10 @@ public class MainController : MonoBehaviour
         _playing = true;
         MenuUI.SetActive(false);
         Mesh.SetActive(false);
-        
-        var window = Instantiate(WindowPrefab, hit.Pose.position, hit.Pose.rotation);
-
-        // Compensate for the hitPose rotation facing away from the raycast (i.e. camera).
-        //window.transform.Rotate(0, 180.0f, 0, Space.Self);
+        Window.SetActive(true);
         
         var anchor = hit.Trackable.CreateAnchor(hit.Pose);
-        window.transform.parent = anchor.transform;
+        Window.transform.parent = anchor.transform;
     }
 
     private void ShowSearchingUI()

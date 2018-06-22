@@ -228,8 +228,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FirstPersonCamera: {fileID: 1941858779}
-  WindowPrefab: {fileID: 1657679152533302, guid: 41182e2bdda654dcfadaf2cfda63e505,
-    type: 2}
+  Window: {fileID: 1241598729}
   MenuUI: {fileID: 606276690}
   SearchingForPlaneUI: {fileID: 32362637}
   TapToPlayUI: {fileID: 1483144080}
@@ -682,19 +681,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4402919840137476, guid: 9213b31a049f2486c8dfea3fed8bcd6c, type: 2}
       propertyPath: m_LocalRotation.x
-      value: -0.7071068
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4402919840137476, guid: 9213b31a049f2486c8dfea3fed8bcd6c, type: 2}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4402919840137476, guid: 9213b31a049f2486c8dfea3fed8bcd6c, type: 2}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4402919840137476, guid: 9213b31a049f2486c8dfea3fed8bcd6c, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 0.7071068
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4402919840137476, guid: 9213b31a049f2486c8dfea3fed8bcd6c, type: 2}
       propertyPath: m_RootOrder
@@ -708,6 +707,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9213b31a049f2486c8dfea3fed8bcd6c, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1241598729 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1486644624011210, guid: 9213b31a049f2486c8dfea3fed8bcd6c,
+    type: 2}
+  m_PrefabInternal: {fileID: 1241598728}
 --- !u!1 &1483144080
 GameObject:
   m_ObjectHideFlags: 0

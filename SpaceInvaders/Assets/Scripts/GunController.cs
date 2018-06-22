@@ -38,7 +38,7 @@ public class GunController : MonoBehaviour {
 	}
 
 	void TargetDirection (Quaternion direction) {
-		GunRotatorY.transform.localRotation = Quaternion.Euler (new Vector3 (0, 0, direction.eulerAngles.y));
+		GunRotatorY.transform.localRotation = Quaternion.Euler (new Vector3 (0, 0, -1 * direction.eulerAngles.y));
 		GunRotatorX.transform.localRotation = Quaternion.Euler (new Vector3 (0, 90, direction.eulerAngles.x));
 	}
 
