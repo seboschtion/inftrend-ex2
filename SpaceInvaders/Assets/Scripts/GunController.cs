@@ -7,7 +7,6 @@ public class GunController : MonoBehaviour {
 	public Camera GameCamera;
 	public GameObject GunRotatorX;
 	public GameObject GunRotatorY;
-	public GameObject TestTarget;
 
 	// Update is called once per frame
 	void Update () {
