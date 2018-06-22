@@ -7,6 +7,19 @@ public class GunController : MonoBehaviour {
 	public Camera GameCamera;
 	public GameObject GunRotatorX;
 	public GameObject GunRotatorY;
+	public ParticleSystem LaserChargeBeam1;
+	public ParticleSystem LaserChargeBeam2;
+
+	void Start () {
+		StartLaser (LaserChargeBeam1);
+		StartLaser (LaserChargeBeam2);
+	}
+
+	void StartLaser (ParticleSystem laser) {
+		var main = laser.main;
+		main.simulationSpeed = 10;
+		laser.Stop ();
+	}
 
 	// Update is called once per frame
 	void Update () {
@@ -16,6 +29,10 @@ public class GunController : MonoBehaviour {
 			TargetGameObject (hit.transform.gameObject);
 		} else {
 			TargetDirection (ray.direction);
+		}
+
+		if (Input.GetButton ("Fire1")) {
+			Fire ();
 		}
 
 	}
@@ -33,5 +50,13 @@ public class GunController : MonoBehaviour {
 	void TargetGameObject (GameObject target) {
 		Vector3 direction = target.transform.position - GunRotatorX.transform.position;
 		TargetDirection (direction);
+	}
+
+	void Fire () {
+		if (!LaserChargeBeam1.isPlaying && !LaserChargeBeam2.isPlaying) {
+			LaserChargeBeam1.Play ();
+			LaserChargeBeam2.Play ();
+		}
+
 	}
 }
