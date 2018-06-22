@@ -7,26 +7,32 @@ public class GunController : MonoBehaviour {
 	public Camera GameCamera;
 	public GameObject GunRotatorX;
 	public GameObject GunRotatorY;
-
-	// Use this for initialization
-	void Start () {
-
-	}
+	public GameObject TestTarget;
 
 	// Update is called once per frame
 	void Update () {
-		Vector3 direction = GameCamera.transform.eulerAngles;
-		TargetDirection (direction);
-		// Ray ray = GameCamera.ViewportPointToRay (new Vector3 (0.5F, 0.5F, 0));
-		// RaycastHit hit;
-		// if (Physics.Raycast (ray, out hit)) { } else {
-		// 	print ("I'm looking at nothing!");
-		// }
+		Ray ray = GameCamera.ViewportPointToRay (new Vector3 (0.5F, 0.5F, 0));
+		RaycastHit hit;
+		if (Physics.Raycast (ray, out hit)) {
+			TargetGameObject (hit.transform.gameObject);
+		} else {
+			TargetDirection (ray.direction);
+		}
 
 	}
 
+	void TargetDirection (Quaternion direction) {
+		GunRotatorY.transform.localRotation = Quaternion.Euler (new Vector3 (0, 0, direction.eulerAngles.y));
+		GunRotatorX.transform.localRotation = Quaternion.Euler (new Vector3 (0, 90, direction.eulerAngles.x));
+	}
+
 	void TargetDirection (Vector3 direction) {
-		GunRotatorY.transform.localRotation = Quaternion.Euler (new Vector3 (0, 0, -1 * direction.y));
-		GunRotatorX.transform.localRotation = Quaternion.Euler (new Vector3 (0, -90, -1 * direction.x));
+		Quaternion rotation = Quaternion.LookRotation (direction);
+		TargetDirection (rotation);
+	}
+
+	void TargetGameObject (GameObject target) {
+		Vector3 direction = target.transform.position - GunRotatorX.transform.position;
+		TargetDirection (direction);
 	}
 }
