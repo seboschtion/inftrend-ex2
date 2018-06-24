@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -27,8 +28,7 @@ public class GunController : MonoBehaviour
         main.simulationSpeed = 10;
         laser.Stop();
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
         Ray ray = GameCamera.ViewportPointToRay(new Vector3(0.5F, 0.5F, 0));
@@ -36,9 +36,9 @@ public class GunController : MonoBehaviour
         if (Physics.Raycast(ray, out hit))
         {
             TargetGameObject(hit.transform.gameObject);
-            if(isShooting && hit.transform.gameObject.tag == "Enemy")
+            if (isShooting && hit.transform.gameObject.tag == "Enemy")
             {
-                hit.transform.gameObject.SetActive(false);
+                DestroyEnemy(hit.transform.gameObject);
             }
         }
         else
@@ -50,7 +50,6 @@ public class GunController : MonoBehaviour
         {
             Fire();
         }
-
     }
 
     void TargetDirection(Quaternion direction)
@@ -78,6 +77,10 @@ public class GunController : MonoBehaviour
             LaserChargeBeam1.Play();
             LaserChargeBeam2.Play();
         }
+    }
 
+    void DestroyEnemy(GameObject enemy)
+    {
+        enemy.SetActive(false);
     }
 }
