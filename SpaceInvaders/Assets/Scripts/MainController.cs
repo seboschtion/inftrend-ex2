@@ -14,6 +14,7 @@ public class MainController : MonoBehaviour
     public GameObject SearchingForPlaneUI;
     public GameObject TapToPlayUI;
     public GameObject Mesh;
+    public GameObject Targets;
 
     private List<DetectedPlane> m_AllPlanes = new List<DetectedPlane>();
     private bool _playing;
@@ -61,6 +62,7 @@ public class MainController : MonoBehaviour
         MenuUI.SetActive(false);
         Mesh.SetActive(false);
         Window.SetActive(true);
+        Targets.SetActive(true);
         
         var anchor = hit.Trackable.CreateAnchor(hit.Pose);
         Window.transform.parent = anchor.transform;
