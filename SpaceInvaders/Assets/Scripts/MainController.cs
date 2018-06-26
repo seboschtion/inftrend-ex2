@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using GoogleARCore;
 using UnityEngine;
+using UnityEngine.UI;
 
 #if UNITY_EDITOR
 using Input = GoogleARCore.InstantPreviewInput;
@@ -17,9 +18,12 @@ public class MainController : MonoBehaviour
     public GameObject PointCloud;
     public GameObject Targets;
     public GameObject HUD;
+    public Text Debugger;
+    public int EnemyThreshold = 11;
 
     private List<DetectedPlane> m_AllPlanes = new List<DetectedPlane>();
     private bool _playing;
+    private int _passedEnemies = 0;
 
     void Start()
     {
@@ -89,5 +93,32 @@ public class MainController : MonoBehaviour
 
         SearchingForPlaneUI.SetActive(showSearchingUI);
         TapToPlayUI.SetActive(!showSearchingUI);
+    }
+
+    public void EnemyPassed()
+    {
+        _passedEnemies += 1;
+        if(_passedEnemies > EnemyThreshold)
+        {
+            GameOver();
+        }
+    }
+
+    public void CountUp()
+    {
+        // TODO: Muriel
+        DebugScreen("CountUp");
+    }
+
+    public void GameOver()
+    {
+        // TODO: Muriel
+        DebugScreen("GameOver");
+    }
+
+    private void DebugScreen(string msg)
+    {
+        Debug.Log(msg);
+        Debugger.text = msg;
     }
 }

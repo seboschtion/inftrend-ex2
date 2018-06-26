@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class GunController : MonoBehaviour
 {
@@ -11,6 +8,8 @@ public class GunController : MonoBehaviour
     public GameObject ExplosionPrefab;
     public ParticleSystem LaserChargeBeam1;
     public ParticleSystem LaserChargeBeam2;
+
+    public MainController MainController;
 
     private bool isShooting
     {
@@ -40,7 +39,7 @@ public class GunController : MonoBehaviour
             if (isShooting && hit.transform.gameObject.tag == "Enemy")
             {
                 DestroyEnemy(hit.transform.gameObject);
-                CountUp();
+                MainController.CountUp();
             }
         }
         else
@@ -87,10 +86,5 @@ public class GunController : MonoBehaviour
         var particle = explosion.GetComponent<ParticleSystem>();
         Destroy(enemy);
         Destroy(particle, particle.main.duration);
-    }
-
-    void CountUp()
-    {
-        // TODO Muriel
     }
 }
