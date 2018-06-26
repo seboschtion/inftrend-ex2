@@ -14,15 +14,8 @@ public class MainController : MonoBehaviour
     public GameObject SearchingForPlaneUI;
     public GameObject TapToPlayUI;
     public GameObject Mesh;
-<<<<<<< HEAD
-<<<<<<< HEAD
     public GameObject Player;
-=======
     public GameObject Targets;
->>>>>>> 4341f6cf167dce4a2dd634fb31c2a8861d5a0cc7
-=======
-    public GameObject Targets;
->>>>>>> 4341f6cf167dce4a2dd634fb31c2a8861d5a0cc7
 
     private List<DetectedPlane> m_AllPlanes = new List<DetectedPlane>();
     private bool _playing;
@@ -71,7 +64,7 @@ public class MainController : MonoBehaviour
         Mesh.SetActive(false);
         Window.SetActive(true);
         Targets.SetActive(true);
-        
+
         var anchor = hit.Trackable.CreateAnchor(hit.Pose);
         Window.transform.parent = anchor.transform;
     }
