@@ -15,7 +15,11 @@ public class MainController : MonoBehaviour
     public GameObject TapToPlayUI;
     public GameObject Mesh;
 <<<<<<< HEAD
+<<<<<<< HEAD
     public GameObject Player;
+=======
+    public GameObject Targets;
+>>>>>>> 4341f6cf167dce4a2dd634fb31c2a8861d5a0cc7
 =======
     public GameObject Targets;
 >>>>>>> 4341f6cf167dce4a2dd634fb31c2a8861d5a0cc7
