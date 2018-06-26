@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using GoogleARCore;
 using UnityEngine;
+using UnityEngine.UI;
 
 #if UNITY_EDITOR
 using Input = GoogleARCore.InstantPreviewInput;
@@ -16,13 +17,19 @@ public class MainController : MonoBehaviour
     public GameObject Mesh;
     public GameObject Player;
     public GameObject Targets;
+    public GameObject HUD;
+    public Text Debugger;
+    public int EnemyThreshold = 11;
 
     private List<DetectedPlane> m_AllPlanes = new List<DetectedPlane>();
     private bool _playing;
+    private int _passedEnemies = 0;
 
-    void Start () {
-		Window.SetActive(false);
-	}
+    void Start()
+    {
+        Window.SetActive(false);
+        HUD.SetActive(false);
+    }
 
     public void Update()
     {
@@ -54,7 +61,7 @@ public class MainController : MonoBehaviour
 
     private void StartGame(TrackableHit hit)
     {
-        if(_playing)
+        if (_playing)
         {
             return;
         }
@@ -62,8 +69,10 @@ public class MainController : MonoBehaviour
         _playing = true;
         MenuUI.SetActive(false);
         Mesh.SetActive(false);
+        PointCloud.SetActive(false);
         Window.SetActive(true);
         Targets.SetActive(true);
+        HUD.SetActive(true);
 
         var anchor = hit.Trackable.CreateAnchor(hit.Pose);
         Window.transform.parent = anchor.transform;
@@ -84,5 +93,32 @@ public class MainController : MonoBehaviour
 
         SearchingForPlaneUI.SetActive(showSearchingUI);
         TapToPlayUI.SetActive(!showSearchingUI);
+    }
+
+    public void EnemyPassed()
+    {
+        _passedEnemies += 1;
+        if(_passedEnemies > EnemyThreshold)
+        {
+            GameOver();
+        }
+    }
+
+    public void CountUp()
+    {
+        // TODO: Muriel
+        DebugScreen("CountUp");
+    }
+
+    public void GameOver()
+    {
+        // TODO: Muriel
+        DebugScreen("GameOver");
+    }
+
+    private void DebugScreen(string msg)
+    {
+        Debug.Log(msg);
+        Debugger.text = msg;
     }
 }

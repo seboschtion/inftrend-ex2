@@ -10,6 +10,7 @@ public class TargetGenerator : MonoBehaviour
     public int windowThreshold = 7;
 
     private double lastSpawned;
+    private int difficulty = 1;
     private Random random;
     private bool negSwitch;
     
@@ -23,18 +24,22 @@ public class TargetGenerator : MonoBehaviour
     {
         if(ConvertToUnixTimestamp(DateTime.Now) - lastSpawned > interval)
         {
-            Spawn();
+            for(int i = 0; i < difficulty; i++)
+            {
+                Spawn();
+            }
+            difficulty += 1;
         }
     }
 
     void Spawn()
     {
         lastSpawned = ConvertToUnixTimestamp(DateTime.Now);
-        var enemy = Instantiate(enemyPrefab, transform);
+        var enemy = Instantiate(enemyPrefab, new Vector3(RandomBetweenPosNeg(130) - 190, RandomBetweenPosNeg(40), 1000), transform.rotation);
 
         Vector3 forceDirection = new Vector3(RandomBetweenPosNeg(8), RandomBetweenPosNeg(8), -100);
         var rigid = enemy.GetComponent<Rigidbody>();
-        rigid.AddForce(forceDirection * 5, ForceMode.Acceleration);
+        rigid.AddForce(forceDirection * 20, ForceMode.Acceleration);
         rigid.AddTorque(new Vector3(0, 0, Switch(20f)));
     }
 

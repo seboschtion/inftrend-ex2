@@ -1,14 +1,19 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class TargetController : MonoBehaviour
-{     
-	void Update ()
+{ 
+    void Update()
     {
-        if (gameObject.transform.position.z <= -100)
+        if (gameObject.transform.position.z < 35)
         {
-            gameObject.SetActive(false);
+            Destroy(gameObject);
+            GetMainController().EnemyPassed();
         }
+    }
+
+    MainController GetMainController()
+    {
+        GameObject go = GameObject.Find("Main Controller");
+        return (MainController)go.GetComponent(typeof(MainController));
     }
 }

@@ -1,15 +1,15 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class GunController : MonoBehaviour
 {
     public Camera GameCamera;
     public GameObject GunRotatorX;
     public GameObject GunRotatorY;
+    public GameObject ExplosionPrefab;
     public ParticleSystem LaserChargeBeam1;
     public ParticleSystem LaserChargeBeam2;
+
+    public MainController MainController;
 
     private bool isShooting
     {
@@ -39,6 +39,7 @@ public class GunController : MonoBehaviour
             if (isShooting && hit.transform.gameObject.tag == "Enemy")
             {
                 DestroyEnemy(hit.transform.gameObject);
+                MainController.CountUp();
             }
         }
         else
@@ -81,6 +82,9 @@ public class GunController : MonoBehaviour
 
     void DestroyEnemy(GameObject enemy)
     {
-        enemy.SetActive(false);
+        var explosion = Instantiate(ExplosionPrefab, enemy.transform.position, enemy.transform.rotation);
+        var particle = explosion.GetComponent<ParticleSystem>();
+        Destroy(enemy);
+        Destroy(particle, particle.main.duration);
     }
 }
