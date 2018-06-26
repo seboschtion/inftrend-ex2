@@ -8,6 +8,7 @@ public class GunController : MonoBehaviour
     public Camera GameCamera;
     public GameObject GunRotatorX;
     public GameObject GunRotatorY;
+    public GameObject ExplosionPrefab;
     public ParticleSystem LaserChargeBeam1;
     public ParticleSystem LaserChargeBeam2;
 
@@ -81,6 +82,9 @@ public class GunController : MonoBehaviour
 
     void DestroyEnemy(GameObject enemy)
     {
-        enemy.SetActive(false);
+        var explosion = Instantiate(ExplosionPrefab, enemy.transform.position, enemy.transform.rotation);
+        var particle = explosion.GetComponent<ParticleSystem>();
+        Destroy(enemy);
+        Destroy(particle, particle.main.duration);
     }
 }
