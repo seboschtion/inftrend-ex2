@@ -14,6 +14,7 @@ public class MainController : MonoBehaviour
     public GameObject SearchingForPlaneUI;
     public GameObject TapToPlayUI;
     public GameObject Mesh;
+    public GameObject Player;
 
     private List<DetectedPlane> m_AllPlanes = new List<DetectedPlane>();
     private bool _playing;
