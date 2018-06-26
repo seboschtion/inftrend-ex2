@@ -8,7 +8,7 @@ public class TargetController : MonoBehaviour
     {
         if (gameObject.transform.position.z <= -100)
         {
-            gameObject.SetActive(false);
+            Destroy(gameObject);
         }
     }
 }

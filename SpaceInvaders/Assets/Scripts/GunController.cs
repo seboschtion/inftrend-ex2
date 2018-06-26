@@ -40,6 +40,7 @@ public class GunController : MonoBehaviour
             if (isShooting && hit.transform.gameObject.tag == "Enemy")
             {
                 DestroyEnemy(hit.transform.gameObject);
+                CountUp();
             }
         }
         else
@@ -86,5 +87,10 @@ public class GunController : MonoBehaviour
         var particle = explosion.GetComponent<ParticleSystem>();
         Destroy(enemy);
         Destroy(particle, particle.main.duration);
+    }
+
+    void CountUp()
+    {
+        // TODO Muriel
     }
 }
