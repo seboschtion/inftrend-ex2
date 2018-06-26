@@ -34,7 +34,7 @@ public class TargetGenerator : MonoBehaviour
 
         Vector3 forceDirection = new Vector3(RandomBetweenPosNeg(8), RandomBetweenPosNeg(8), -100);
         var rigid = enemy.GetComponent<Rigidbody>();
-        rigid.AddForce(forceDirection * 5, ForceMode.Acceleration);
+        rigid.AddForce(forceDirection * 10, ForceMode.Acceleration);
         rigid.AddTorque(new Vector3(0, 0, Switch(20f)));
     }
 
