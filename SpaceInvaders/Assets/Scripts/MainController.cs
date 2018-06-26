@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using GoogleARCore;
 using UnityEngine;
 
@@ -15,6 +15,7 @@ public class MainController : MonoBehaviour
     public GameObject TapToPlayUI;
     public GameObject Mesh;
     public GameObject Targets;
+    public GameObject Player;
 
     private List<DetectedPlane> m_AllPlanes = new List<DetectedPlane>();
     private bool _playing;
