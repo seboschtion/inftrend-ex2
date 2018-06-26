@@ -14,14 +14,18 @@ public class MainController : MonoBehaviour
     public GameObject SearchingForPlaneUI;
     public GameObject TapToPlayUI;
     public GameObject Mesh;
+    public GameObject PointCloud;
     public GameObject Targets;
+    public GameObject HUD;
 
     private List<DetectedPlane> m_AllPlanes = new List<DetectedPlane>();
     private bool _playing;
 
-    void Start () {
-		Window.SetActive(false);
-	}
+    void Start()
+    {
+        Window.SetActive(false);
+        HUD.SetActive(false);
+    }
 
     public void Update()
     {
@@ -53,7 +57,7 @@ public class MainController : MonoBehaviour
 
     private void StartGame(TrackableHit hit)
     {
-        if(_playing)
+        if (_playing)
         {
             return;
         }
@@ -61,9 +65,11 @@ public class MainController : MonoBehaviour
         _playing = true;
         MenuUI.SetActive(false);
         Mesh.SetActive(false);
+        PointCloud.SetActive(false);
         Window.SetActive(true);
         Targets.SetActive(true);
-        
+        HUD.SetActive(true);
+
         var anchor = hit.Trackable.CreateAnchor(hit.Pose);
         Window.transform.parent = anchor.transform;
     }
