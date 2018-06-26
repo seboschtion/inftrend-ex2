@@ -8,28 +8,29 @@ public class GettingNameScript : MonoBehaviour {
 
     public Player player;
     public Text welcome;
-    public InputField inputName;
 
 	// Use this for initialization
 	void Start () {
-        inputName.ActivateInputField();
-        inputName.onEndEdit.AddListener(delegate { SubmitName(inputName.text);});
 	}
 
-    private void SubmitName(string playerName) {
-        player.name = playerName;
-        welcome.text = "Welcome " + playerName + "!";
-        gameObject.GetComponent<Animator>().Play("StartAnimation");
-        StartMainScene();
-    }
-
-    public void StartMainScene() {
-        StartCoroutine(WaitForFiveSeconds());
-        SceneManager.LoadScene("MainScene");
-    }
-
-    IEnumerator WaitForFiveSeconds()
+    void OnGUI()
     {
-        yield return new WaitForSeconds(5);
+        player.name = GUI.TextField(new Rect(270, 160, 130, 20), player.name, 25);
+        if (GUI.Button(new Rect(400, 160, 40, 20), "Save"))
+        {
+            SubmitName();
+        }
+    }
+
+    private void SubmitName() {
+        welcome.text = "Welcome " + player.name + "!";
+        StartCoroutine(LoadMain());
+    }
+
+
+    IEnumerator LoadMain()
+    {
+        yield return new WaitForSeconds(3);
+        SceneManager.LoadScene("MainScene");
     }
 }

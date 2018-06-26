@@ -11,9 +11,14 @@ public class Player : MonoBehaviour {
     void Awake()
     {
         if (player != null)
+        {
             GameObject.Destroy(player);
+        }
         else
+        {
             player = this;
+            player.name = "";
+        }
 
         DontDestroyOnLoad(this);
     }
