@@ -1,0 +1,148 @@
+fileFormatVersion: 2
+guid: 4a7f20f13c517d245abe4adda4e9a281
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: ArmGreebles
+    100002: ArmPlates
+    100004: CockpitGreebles
+    100006: EngineGreebles
+    100008: Engines
+    100010: HullPlates
+    100012: MainHull
+    100014: //RootNode
+    100016: Window
+    100018: WingGreebles
+    100020: WingGreebles2
+    400000: ArmGreebles
+    400002: ArmPlates
+    400004: CockpitGreebles
+    400006: EngineGreebles
+    400008: Engines
+    400010: HullPlates
+    400012: MainHull
+    400014: //RootNode
+    400016: Window
+    400018: WingGreebles
+    400020: WingGreebles2
+    2100000: ScratchedMetal
+    2100002: Black
+    2100004: ScratchedMetalDark
+    2100006: ReflectiveGlass
+    2100008: TieWingMesh
+    2100010: ScratchedMetalShinyBlack
+    2100012: RedEngineGlow
+    2300000: ArmGreebles
+    2300002: ArmPlates
+    2300004: CockpitGreebles
+    2300006: EngineGreebles
+    2300008: Engines
+    2300010: HullPlates
+    2300012: MainHull
+    2300014: Window
+    2300016: WingGreebles
+    2300018: WingGreebles2
+    3300000: ArmGreebles
+    3300002: ArmPlates
+    3300004: CockpitGreebles
+    3300006: EngineGreebles
+    3300008: Engines
+    3300010: HullPlates
+    3300012: MainHull
+    3300014: Window
+    3300016: WingGreebles
+    3300018: WingGreebles2
+    4300000: WingGreebles2
+    4300002: ArmGreebles
+    4300004: HullPlates
+    4300006: WingGreebles
+    4300008: ArmPlates
+    4300010: Window
+    4300012: MainHull
+    4300014: CockpitGreebles
+    4300016: Engines
+    4300018: EngineGreebles
+    7400000: Default Take
+    9500000: //RootNode
+    2186277476908879412: ImportLogs
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
