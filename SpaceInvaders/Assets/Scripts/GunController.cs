@@ -27,20 +27,31 @@ public class GunController : MonoBehaviour {
     }
 
     void Update () {
+        UpdateGunOpenFire ();
+        UpdateGunAim ();
+    }
+
+    void UpdateGunOpenFire () {
+        if (Input.GetButton ("Fire1")) {
+            OpenFire ();
+        }
+    }
+
+    void UpdateGunAim () {
         Ray ray = GameCamera.ViewportPointToRay (new Vector3 (0.5F, 0.5F, 0));
         RaycastHit hit;
-        if (Physics.Raycast (ray, out hit)) {
+        
+        if (Physics.Raycast (ray, out hit) && hit.transform.gameObject.CompareTag ("Enemy")) {
             TargetGameObject (hit.transform.gameObject);
-            if (isShooting && hit.transform.gameObject.CompareTag ("Enemy")) {
-                DestroyEnemy (hit.transform.gameObject);
-                MainController.CountUp ();
-            }
+            CheckGunHit (hit);
         } else {
             TargetDirection (ray.direction);
         }
+    }
 
-        if (Input.GetButton ("Fire1")) {
-            Fire ();
+    void CheckGunHit (RaycastHit hit) {
+        if (isShooting) {
+            DestroyEnemy (hit.transform.gameObject);
         }
     }
 
@@ -62,7 +73,7 @@ public class GunController : MonoBehaviour {
         TargetDirection (direction);
     }
 
-    void Fire () {
+    void OpenFire () {
         if (!isShooting) {
             Laser1.Play ();
             Laser2.Play ();
@@ -73,6 +84,7 @@ public class GunController : MonoBehaviour {
         var explosion = Instantiate (ExplosionPrefab, enemy.transform.position, enemy.transform.rotation);
         var particle = explosion.GetComponent<ParticleSystem> ();
         Destroy (enemy);
-        Destroy (particle, particle.main.duration);
+        Destroy (explosion, particle.main.duration);
+        MainController.CountUp ();
     }
 }
