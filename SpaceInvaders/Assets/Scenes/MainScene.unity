@@ -489,16 +489,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
-    - target: {fileID: 114284037668677470, guid: 9213b31a049f2486c8dfea3fed8bcd6c,
+    - target: {fileID: 114336894311236002, guid: 9213b31a049f2486c8dfea3fed8bcd6c,
         type: 2}
       propertyPath: MainController
       value: 
       objectReference: {fileID: 202472013}
-    - target: {fileID: 114082523077856708, guid: 9213b31a049f2486c8dfea3fed8bcd6c,
+    - target: {fileID: 114587232666854976, guid: 9213b31a049f2486c8dfea3fed8bcd6c,
         type: 2}
-      propertyPath: MainCamera
+      propertyPath: EnemyPrefab
       value: 
-      objectReference: {fileID: 1941858779}
+      objectReference: {fileID: 100014, guid: 4a7f20f13c517d245abe4adda4e9a281, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9213b31a049f2486c8dfea3fed8bcd6c, type: 2}
   m_IsPrefabParent: 0

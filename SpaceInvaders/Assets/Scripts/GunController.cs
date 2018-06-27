@@ -6,18 +6,18 @@ public class GunController : MonoBehaviour {
     public GameObject GunRotatorX;
     public GameObject GunRotatorY;
     public GameObject ExplosionPrefab;
-    public ParticleSystem LaserChargeBeam1;
-    public ParticleSystem LaserChargeBeam2;
+    public ParticleSystem Laser1;
+    public ParticleSystem Laser2;
 
     public MainController MainController;
 
     private bool isShooting {
-        get { return LaserChargeBeam1.isPlaying && LaserChargeBeam2.isPlaying; }
+        get { return Laser1.isPlaying && Laser2.isPlaying; }
     }
 
     void Start () {
-        StartLaser (LaserChargeBeam1);
-        StartLaser (LaserChargeBeam2);
+        StartLaser (Laser1);
+        StartLaser (Laser2);
     }
 
     void StartLaser (ParticleSystem laser) {
@@ -64,8 +64,8 @@ public class GunController : MonoBehaviour {
 
     void Fire () {
         if (!isShooting) {
-            LaserChargeBeam1.Play ();
-            LaserChargeBeam2.Play ();
+            Laser1.Play ();
+            Laser2.Play ();
         }
     }
 

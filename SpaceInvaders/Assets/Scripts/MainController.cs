@@ -21,9 +21,9 @@ public class MainController : MonoBehaviour
     public Text Debugger;
     public int EnemyThreshold = 11;
 
-    private List<DetectedPlane> m_AllPlanes = new List<DetectedPlane>();
-    private bool _playing;
-    private int _passedEnemies = 0;
+    private List<DetectedPlane> allPlanes = new List<DetectedPlane>();
+    private bool playing;
+    private int passedEnemies = 0;
 
     void Start()
     {
@@ -61,12 +61,12 @@ public class MainController : MonoBehaviour
 
     private void StartGame(TrackableHit hit)
     {
-        if (_playing)
+        if (playing)
         {
             return;
         }
 
-        _playing = true;
+        playing = true;
         MenuUI.SetActive(false);
         Mesh.SetActive(false);
         PointCloud.SetActive(false);
@@ -80,11 +80,11 @@ public class MainController : MonoBehaviour
 
     private void ShowSearchingUI()
     {
-        Session.GetTrackables<DetectedPlane>(m_AllPlanes);
+        Session.GetTrackables<DetectedPlane>(allPlanes);
         bool showSearchingUI = true;
-        for (int i = 0; i < m_AllPlanes.Count; i++)
+        for (int i = 0; i < allPlanes.Count; i++)
         {
-            if (m_AllPlanes[i].TrackingState == TrackingState.Tracking)
+            if (allPlanes[i].TrackingState == TrackingState.Tracking)
             {
                 showSearchingUI = false;
                 break;
@@ -97,8 +97,8 @@ public class MainController : MonoBehaviour
 
     public void EnemyPassed()
     {
-        _passedEnemies += 1;
-        if(_passedEnemies > EnemyThreshold)
+        passedEnemies += 1;
+        if(passedEnemies > EnemyThreshold)
         {
             GameOver();
         }

@@ -322,11 +322,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114234632866206072, guid: 06176740d72b21f419b9b8bd136636fd,
-        type: 2}
-      propertyPath: attackDistance
-      value: 800
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 06176740d72b21f419b9b8bd136636fd, type: 2}
   m_IsPrefabParent: 0
@@ -376,14 +371,10 @@ Prefab:
       objectReference: {fileID: 1660256187}
     - target: {fileID: 114587232666854976, guid: 9213b31a049f2486c8dfea3fed8bcd6c,
         type: 2}
-      propertyPath: spawnPointDistance
-      value: 5000
-      objectReference: {fileID: 0}
-    - target: {fileID: 114587232666854976, guid: 9213b31a049f2486c8dfea3fed8bcd6c,
+      propertyPath: EnemyPrefab
+      value: 
+      objectReference: {fileID: 1618861886537816, guid: 06176740d72b21f419b9b8bd136636fd,
         type: 2}
-      propertyPath: interval
-      value: 10
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9213b31a049f2486c8dfea3fed8bcd6c, type: 2}
   m_IsPrefabParent: 0
