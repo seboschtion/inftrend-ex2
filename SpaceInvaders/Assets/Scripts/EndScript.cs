@@ -21,6 +21,12 @@ public class EndScript : MonoBehaviour {
         }
         score.text = "You scored " + player.score + " points";
         goodbye.text = "See you soon, " + player.name + " ...";
-	}
+        StartCoroutine("LastScene");
+    }
 
+    IEnumerator LastScene()
+    {
+        yield return new WaitForSeconds(5);
+        SceneManager.LoadScene("LastScene");
+    }
 }
