@@ -271,6 +271,7 @@ MonoBehaviour:
   Targets: {fileID: 1375737368}
   HUD: {fileID: 34363261}
   Debugger: {fileID: 869165381}
+  EnemyThreshold: 11
 --- !u!1 &376123935
 GameObject:
   m_ObjectHideFlags: 0
@@ -906,6 +907,10 @@ Prefab:
       propertyPath: MainController
       value: 
       objectReference: {fileID: 202472013}
+    - target: {fileID: 1506639371307758, guid: 9213b31a049f2486c8dfea3fed8bcd6c, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9213b31a049f2486c8dfea3fed8bcd6c, type: 2}
   m_IsPrefabParent: 0

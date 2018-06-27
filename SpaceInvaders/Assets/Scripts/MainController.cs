@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using GoogleARCore;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 #if UNITY_EDITOR
 using Input = GoogleARCore.InstantPreviewInput;
@@ -24,11 +25,17 @@ public class MainController : MonoBehaviour
     private List<DetectedPlane> m_AllPlanes = new List<DetectedPlane>();
     private bool _playing;
     private int _passedEnemies = 0;
+    private Player player;
 
     void Start()
     {
         Window.SetActive(false);
         HUD.SetActive(false);
+        GameObject playerGameObj = GameObject.FindGameObjectWithTag("Player");
+        if (playerGameObj != null)
+        {
+          player = playerGameObj.GetComponent<Player>();
+        }
     }
 
     public void Update()
@@ -106,14 +113,12 @@ public class MainController : MonoBehaviour
 
     public void CountUp()
     {
-        // TODO: Muriel
-        DebugScreen("CountUp");
+      player.score++;
     }
 
     public void GameOver()
     {
-        // TODO: Muriel
-        DebugScreen("GameOver");
+      SceneManager.LoadScene("EndOfGame");
     }
 
     private void DebugScreen(string msg)

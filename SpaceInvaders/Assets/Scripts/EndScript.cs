@@ -1,3 +1,4 @@
+
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,11 +10,17 @@ public class EndScript : MonoBehaviour {
     private Player player;
 
     public Text goodbye;
+    public Text score;
 
 	// Use this for initialization
 	void Start () {
-        GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
-        goodbye.text = "You scored " + playerObj.name + " points\nSee you soon...";
+        GameObject playerGameObj = GameObject.FindGameObjectWithTag("Player");
+        if (playerGameObj != null)
+        {
+          player = playerGameObj.GetComponent<Player>();
+        }
+        score.text = "You scored " + player.score + " points";
+        goodbye.text = "See you soon, " + player.name + " ...";
 	}
 
 }
