@@ -271,6 +271,7 @@ MonoBehaviour:
   Targets: {fileID: 1375737368}
   HUD: {fileID: 34363261}
   Debugger: {fileID: 869165381}
+  EnemyThreshold: 11
 --- !u!1 &376123935
 GameObject:
   m_ObjectHideFlags: 0
@@ -878,34 +879,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
-    - target: {fileID: 114082523077856708, guid: 9213b31a049f2486c8dfea3fed8bcd6c,
-        type: 2}
-      propertyPath: MainCamera
-      value: 
-      objectReference: {fileID: 1941858779}
-    - target: {fileID: 1674515943997630, guid: 9213b31a049f2486c8dfea3fed8bcd6c, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1699920751090688, guid: 9213b31a049f2486c8dfea3fed8bcd6c, type: 2}
-      propertyPath: m_TagString
-      value: Enemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 4707654000753742, guid: 9213b31a049f2486c8dfea3fed8bcd6c, type: 2}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114284037668677470, guid: 9213b31a049f2486c8dfea3fed8bcd6c,
-        type: 2}
-      propertyPath: ExplosionPrefab
-      value: 
-      objectReference: {fileID: 1000011797152326, guid: acf39d9f4addf294d93fa56fa373961b,
-        type: 2}
     - target: {fileID: 114284037668677470, guid: 9213b31a049f2486c8dfea3fed8bcd6c,
         type: 2}
       propertyPath: MainController
       value: 
       objectReference: {fileID: 202472013}
+    - target: {fileID: 114082523077856708, guid: 9213b31a049f2486c8dfea3fed8bcd6c,
+        type: 2}
+      propertyPath: MainCamera
+      value: 
+      objectReference: {fileID: 1941858779}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9213b31a049f2486c8dfea3fed8bcd6c, type: 2}
   m_IsPrefabParent: 0
@@ -919,21 +902,6 @@ GameObject:
   m_PrefabParentObject: {fileID: 1674515943997630, guid: 9213b31a049f2486c8dfea3fed8bcd6c,
     type: 2}
   m_PrefabInternal: {fileID: 1241598728}
---- !u!114 &1375737370
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1375737368}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29d780eb536c7f8438e496c479c89622, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  interval: 3
-  enemyPrefab: {fileID: 1618861886537816, guid: 06176740d72b21f419b9b8bd136636fd,
-    type: 2}
-  windowThreshold: 2
 --- !u!1 &1483144080
 GameObject:
   m_ObjectHideFlags: 0

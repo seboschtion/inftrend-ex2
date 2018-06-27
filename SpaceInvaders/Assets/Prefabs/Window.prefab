@@ -482,13 +482,14 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4377855096747270}
+  - component: {fileID: 114824206075369390}
   m_Layer: 0
   m_Name: Targets
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1693628137005858
 GameObject:
   m_ObjectHideFlags: 1
@@ -519,7 +520,7 @@ GameObject:
   - component: {fileID: 135496992987512994}
   m_Layer: 9
   m_Name: Sphere
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2150,8 +2151,26 @@ MonoBehaviour:
   GameCamera: {fileID: 20614922024597794}
   GunRotatorX: {fileID: 1363653865468114}
   GunRotatorY: {fileID: 1693628137005858}
+  ExplosionPrefab: {fileID: 1000011797152326, guid: acf39d9f4addf294d93fa56fa373961b,
+    type: 2}
   LaserChargeBeam1: {fileID: 198428698028336490}
   LaserChargeBeam2: {fileID: 198989782081984542}
+  MainController: {fileID: 0}
+--- !u!114 &114824206075369390
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1674515943997630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29d780eb536c7f8438e496c479c89622, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interval: 3
+  enemyPrefab: {fileID: 1618861886537816, guid: 06176740d72b21f419b9b8bd136636fd,
+    type: 2}
+  windowThreshold: 2
 --- !u!124 &124280368233201996
 Behaviour:
   m_ObjectHideFlags: 1
