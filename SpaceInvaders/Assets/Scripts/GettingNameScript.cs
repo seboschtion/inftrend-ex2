@@ -31,6 +31,6 @@ public class GettingNameScript : MonoBehaviour {
     IEnumerator LoadMain()
     {
         yield return new WaitForSeconds(3);
-        SceneManager.LoadScene("EndOfGame");
+        SceneManager.LoadScene("MainScene");
     }
 }

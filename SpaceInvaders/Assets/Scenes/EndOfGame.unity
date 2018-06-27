@@ -420,7 +420,6 @@ GameObject:
   - component: {fileID: 1617584417}
   - component: {fileID: 1617584416}
   - component: {fileID: 1617584415}
-  - component: {fileID: 1617584419}
   - component: {fileID: 1617584414}
   m_Layer: 5
   m_Name: EndScreen
@@ -441,6 +440,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goodbye: {fileID: 1212939803}
+  score: {fileID: 650044312}
 --- !u!114 &1617584415
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -520,21 +520,3 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!95 &1617584419
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1617584413}
-  m_Enabled: 0
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 832f6baea00eb436593381596048e770, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
