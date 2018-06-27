@@ -31,7 +31,7 @@ public class GunController : MonoBehaviour {
         RaycastHit hit;
         if (Physics.Raycast (ray, out hit)) {
             TargetGameObject (hit.transform.gameObject);
-            if (isShooting && hit.transform.gameObject.CompareTag("Enemy")) {
+            if (isShooting && hit.transform.gameObject.CompareTag ("Enemy")) {
                 DestroyEnemy (hit.transform.gameObject);
                 MainController.CountUp ();
             }
@@ -48,8 +48,8 @@ public class GunController : MonoBehaviour {
         var rotationY = Quaternion.Euler (new Vector3 (0, 0, -1 * direction.eulerAngles.y));
         var rotationX = Quaternion.Euler (new Vector3 (0, 90, direction.eulerAngles.x));
 
-        GunRotatorY.transform.localRotation = Quaternion.Lerp(GunRotatorY.transform.localRotation, rotationY, Time.time * speed);
-        GunRotatorX.transform.localRotation = Quaternion.Lerp(GunRotatorX.transform.localRotation, rotationX, Time.time * speed);
+        GunRotatorY.transform.localRotation = Quaternion.Lerp (GunRotatorY.transform.localRotation, rotationY, Time.time * speed);
+        GunRotatorX.transform.localRotation = Quaternion.Lerp (GunRotatorX.transform.localRotation, rotationX, Time.time * speed);
     }
 
     void TargetDirection (Vector3 direction) {
