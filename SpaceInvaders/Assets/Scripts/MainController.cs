@@ -15,7 +15,7 @@ public class MainController : MonoBehaviour
     public GameObject SearchingForPlaneUI;
     public GameObject TapToPlayUI;
     public GameObject Mesh;
-    public GameObject Player;
+    public GameObject PointCloud;
     public GameObject Targets;
     public GameObject HUD;
     public Text Debugger;
