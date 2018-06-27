@@ -18,6 +18,8 @@ public class MainController : MonoBehaviour
     public GameObject Mesh;
     public GameObject PointCloud;
     public GameObject HUD;
+    public Text Scored;
+    public Text Missed;
     public int EnemyThreshold = 11;
 
     private List<DetectedPlane> allPlanes = new List<DetectedPlane>();
@@ -32,7 +34,7 @@ public class MainController : MonoBehaviour
         GameObject playerGameObj = GameObject.FindGameObjectWithTag("Player");
         if (playerGameObj != null)
         {
-          player = playerGameObj.GetComponent<Player>();
+            player = playerGameObj.GetComponent<Player>();
         }
     }
 
@@ -102,7 +104,8 @@ public class MainController : MonoBehaviour
     public void EnemyPassed()
     {
         passedEnemies += 1;
-        if(passedEnemies > EnemyThreshold)
+        Missed.text = string.Format("Missed: {0} / {1}", passedEnemies, EnemyThreshold);
+        if (passedEnemies > EnemyThreshold)
         {
             GameOver();
         }
@@ -110,11 +113,13 @@ public class MainController : MonoBehaviour
 
     public void CountUp()
     {
-      player.score++;
+        player.score++;
+        Scored.text = string.Format("Scored: {0}", player.score);
     }
 
     public void GameOver()
     {
-      SceneManager.LoadScene("EndOfGame");
+        HUD.SetActive(false);
+        SceneManager.LoadScene("EndOfGame");
     }
 }

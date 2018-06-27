@@ -906,6 +906,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 311abd7eaa88f3d499480f5f2c7805bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MainControllerScript: {fileID: 0}
   Target: {x: 0, y: 0, z: 0}
   Laser1: {fileID: 198886456216724340}
   Laser2: {fileID: 198618677020972070}

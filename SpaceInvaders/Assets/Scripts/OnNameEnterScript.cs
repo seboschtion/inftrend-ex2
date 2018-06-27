@@ -19,6 +19,7 @@ public class OnNameEnterScript : MonoBehaviour
         {
             player.name = nameInput.text;
             button.SetActive(true);
+            nameInput.placeholder.GetComponent<Text>().text = string.Empty;
         }
     }
 

@@ -1,27 +1,25 @@
-
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class EndScript : MonoBehaviour {
-
-    private Player player;
-
+public class EndScript : MonoBehaviour
+{
     public Text goodbye;
     public Text score;
 
-	// Use this for initialization
-	void Start () {
+    private Player player;
+
+    void Start()
+    {
         GameObject playerGameObj = GameObject.FindGameObjectWithTag("Player");
         if (playerGameObj != null)
         {
-          player = playerGameObj.GetComponent<Player>();
+            player = playerGameObj.GetComponent<Player>();
         }
-        score.text = "You scored " + player.score + " points";
-        goodbye.text = "See you soon, " + player.name + " ...";
-        StartCoroutine("LastScene");
+        score.text = string.Format("You scored {0} point{1}!", player.score, player.score > 1 ? "s" : "");
+        goodbye.text = string.Format("See you soon, {0}...", player.name);;
+        StartCoroutine(LastScene());
     }
 
     IEnumerator LastScene()
