@@ -19,7 +19,6 @@ public class MainController : MonoBehaviour
     public GameObject PointCloud;
     public GameObject Targets;
     public GameObject HUD;
-    public Text Debugger;
     public int EnemyThreshold = 11;
 
     private List<DetectedPlane> m_AllPlanes = new List<DetectedPlane>();
@@ -119,11 +118,5 @@ public class MainController : MonoBehaviour
     public void GameOver()
     {
       SceneManager.LoadScene("EndOfGame");
-    }
-
-    private void DebugScreen(string msg)
-    {
-        Debug.Log(msg);
-        Debugger.text = msg;
     }
 }
