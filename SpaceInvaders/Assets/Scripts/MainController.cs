@@ -17,7 +17,6 @@ public class MainController : MonoBehaviour
     public GameObject TapToPlayUI;
     public GameObject Mesh;
     public GameObject PointCloud;
-    public GameObject Targets;
     public GameObject HUD;
     public int EnemyThreshold = 11;
 
@@ -77,7 +76,6 @@ public class MainController : MonoBehaviour
         Mesh.SetActive(false);
         PointCloud.SetActive(false);
         Window.SetActive(true);
-        Targets.SetActive(true);
         HUD.SetActive(true);
 
         var anchor = hit.Trackable.CreateAnchor(hit.Pose);
