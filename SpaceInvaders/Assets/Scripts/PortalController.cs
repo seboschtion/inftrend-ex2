@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Portal : MonoBehaviour {
+public class PortalController : MonoBehaviour {
 	public Camera MainCamera = null;
 	// One to render to texture, and another to render normally to switch between (preview)
 	public Camera[] PortalCameras = null;
