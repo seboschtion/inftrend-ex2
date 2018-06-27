@@ -270,7 +270,6 @@ MonoBehaviour:
   PointCloud: {fileID: 1107881340}
   Targets: {fileID: 0}
   HUD: {fileID: 34363261}
-  Debugger: {fileID: 869165381}
   EnemyThreshold: 11
 --- !u!1 &376123935
 GameObject:
@@ -499,6 +498,11 @@ Prefab:
       propertyPath: EnemyPrefab
       value: 
       objectReference: {fileID: 100014, guid: 4a7f20f13c517d245abe4adda4e9a281, type: 3}
+    - target: {fileID: 114518894486242728, guid: 9213b31a049f2486c8dfea3fed8bcd6c,
+        type: 2}
+      propertyPath: MainCamera
+      value: 
+      objectReference: {fileID: 1941858779}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9213b31a049f2486c8dfea3fed8bcd6c, type: 2}
   m_IsPrefabParent: 0

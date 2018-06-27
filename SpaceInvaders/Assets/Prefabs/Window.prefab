@@ -2065,7 +2065,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29d780eb536c7f8438e496c479c89622, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyPrefab: {fileID: 100014, guid: 4a7f20f13c517d245abe4adda4e9a281, type: 3}
+  EnemyPrefab: {fileID: 1618861886537816, guid: 06176740d72b21f419b9b8bd136636fd,
+    type: 2}
   SpawnPointDistance: 8000
   SecondsBetweenWaves: 6
 --- !u!124 &124280368233201996
