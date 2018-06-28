@@ -17,9 +17,9 @@ public class OnNameEnterScript : MonoBehaviour
     {
         if (nameInput.isFocused && !string.IsNullOrEmpty(nameInput.text))
         {
+            nameInput.placeholder.GetComponent<Text>().text = string.Empty;
             player.name = nameInput.text;
             button.SetActive(true);
-            nameInput.placeholder.GetComponent<Text>().text = string.Empty;
         }
     }
 
